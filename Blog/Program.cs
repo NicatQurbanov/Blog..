@@ -1,4 +1,5 @@
-﻿using Blog.Model;
+﻿
+using Blog.Model;
 using Blog.Model.News;
 using System.Runtime.Serialization;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Blog
             Console.OutputEncoding = Encoding.UTF8;
             Console.InputEncoding = Encoding.UTF8;
             PostController posts = new();
+
 
             posts.AddPost(new WeatherForecast("Погода в феврале", 
                 "В городе ожидается снегопад и сильные ветры. Одевайтесь потеплее", 

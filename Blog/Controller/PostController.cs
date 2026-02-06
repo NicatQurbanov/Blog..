@@ -11,11 +11,13 @@ namespace Blog
 
         public void Show()
         { 
+            Welcome();
             foreach (Post p in Posts) Console.WriteLine(p.Show());
         }
 
         public void Show(List<Post> posts)
         {
+            Welcome();
             foreach (Post p in posts) Console.WriteLine(p.Show());
         }
 
@@ -50,12 +52,15 @@ namespace Blog
         }
 
         public List<Post> GetPostings() => [.. Posts.Where(p => p is Posting)];
-
         public List<Post> GetNews() => [.. Posts.Where(p => p is News)];
-
         public List<Post> GetWeatherForecast() => [.. Posts.Where(p => p is WeatherForecast)];
-
         public List<Post> GetEconomics() => [.. Posts.Where(p => p is Economics)];
+        public List<Post> GetArts() => [.. Posts.Where(p => p is Posting posting && posting.Genre == PostGenre.Искусство)];
+        public List<Post> GetScience() => [.. Posts.Where(p => p is Posting posting && posting.Genre == PostGenre.Наука)];
+        public List<Post> GetKids() => [.. Posts.Where(p => p is Posting posting && posting.Genre == PostGenre.Дети)];
+        public List<Post> GetMiscellaneous() => [.. Posts.Where(p => p is Posting posting && posting.Genre == PostGenre.Другое)];
+        public List<Post> GetHealth() => [.. Posts.Where(p => p is Posting posting && posting.Genre == PostGenre.Здоровье)];
+        public List<Post> GetTech() => [.. Posts.Where(p => p is Posting posting && posting.Genre == PostGenre.Технологии)];
 
         public void Welcome()
         {
